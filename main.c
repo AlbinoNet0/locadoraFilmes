@@ -3,7 +3,7 @@
 #include "locadora/locadora.h"
 
 int main() {
-    LOCADORA * locadora = criarLocadora("Eros Locacoes");
+    LOCADORA * locadora = criarLocadora("Amizades Locacoes");
 
     char filme[] = "locadora/filmes.txt";
     carregarFilmesDoArquivo(locadora, filme);
