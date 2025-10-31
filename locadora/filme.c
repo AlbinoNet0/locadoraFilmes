@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "filme.h"
 
@@ -10,18 +11,18 @@ typedef struct FILME {
     struct FILME* proximo;
 } FILME;
 
-
-FILME* criarFilme(char* nome, float valor, float duracao, FILME*novo) {
-    FILME * filme = (FILME*)malloc(sizeof(FILME));
-    if(filme == NULL) {
+FILME* criarFilme(char* nome, float valor, float duracao, FILME* proximo) {
+    FILME* filme = (FILME*)malloc(sizeof(FILME));
+    if (filme == NULL) {
+        printf("ERRO DE ALOCACAO\n");
         exit(1);
     }
 
     strcpy(filme->nome, nome);
     filme->valor = valor;
     filme->duracao = duracao;
-    filme->proximo = novo;
-    
+    filme->proximo = proximo;
+
     return filme;
 }
 
