@@ -6,5 +6,10 @@ typedef struct LOCADORA LOCADORA;
 LOCADORA* criarLocadora(char* nomeLocadora);
 void novoFilme(LOCADORA* locadora, char* nome, float valor, float tempo);
 void carregarFilmesDoArquivo(LOCADORA* locadora, char* nomeArquivo);
+void alugaPorId(LOCADORA* locadora, int id);
+void devolvePorId(LOCADORA* locadora, int id);
+void exibirFilmes(LOCADORA* locadora);
+void mostraDisponiveis(LOCADORA* locadora);
+void mostraAlugados(LOCADORA* locadora);
 
 #endif

@@ -8,6 +8,7 @@ typedef struct FILME {
     char nome[50];
     float valor;
     float duracao;
+    int alugado;  
     struct FILME* proximo;
 } FILME;
 
@@ -21,6 +22,7 @@ FILME* criarFilme(char* nome, float valor, float duracao, FILME* proximo) {
     strcpy(filme->nome, nome);
     filme->valor = valor;
     filme->duracao = duracao;
+    filme->alugado = 0;  
     filme->proximo = proximo;
 
     return filme;
@@ -28,6 +30,10 @@ FILME* criarFilme(char* nome, float valor, float duracao, FILME* proximo) {
 
 void setId(FILME* filme, int id) {
     filme->id = id;
+}
+
+int getId(FILME* filme) {
+    return filme->id;
 }
 
 void setEndereco(FILME* meuFilme, FILME* lista) {
@@ -48,4 +54,16 @@ float getValor(FILME* filme) {
 
 float getDuracao(FILME* filme) {
     return filme->duracao;
+}
+
+int taAlugado(FILME* filme) {
+    return filme->alugado;
+}
+
+void alugarFilminho(FILME* filme) {
+    filme->alugado = 1;
+}
+
+void devolveFilminho(FILME* filme) {
+    filme->alugado = 0;
 }
