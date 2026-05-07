@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book.Net - Cadastro de Livros</title>
+
+    <link rel="icon" href="img/imagem_2026-05-07_182138679.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="stylecada.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo">
+            <h1>Book.Net</h1>
+        </div>
+
+        <nav class="menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="livros.html">Livros</a>
+            <a href="cadastro-livro.html">Cadastro</a>
+        </nav>
+
+    </header>
+
+    <main class="container">
+
+        <section class="titulo-pagina">
+
+            <h2>Cadastro de Livro</h2>
+
+            <p>
+                Preencha os dados do livro
+            </p>
+
+        </section>
+
+        <section class="formulario">
+
+            <form action="#">
+
+                <div class="grupo-form">
+
+                    <label for="isbn">ISBN</label>
+                    <input type="text" id="isbn" name="isbn">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="nome">Nome do Livro</label>
+                    <input type="text" id="nome" name="nome">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="editora">Editora</label>
+                    <input type="text" id="editora" name="editora">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="autor">Autor</label>
+                    <input type="text" id="autor" name="autor">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="ano">Ano de Publicação</label>
+                    <input type="number" id="ano" name="ano">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" name="assunto">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="tipo">Tipo</label>
+
+                    <select id="tipo" name="tipo">
+                        <option value="">Selecione</option>
+                        <option value="venda">Venda</option>
+                        <option value="aluguel">Aluguel</option>
+                    </select>
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="origem">Origem</label>
+
+                    <select id="origem" name="origem">
+                        <option value="">Selecione</option>
+                        <option value="nacional">Nacional</option>
+                        <option value="importado">Importado</option>
+                    </select>
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" name="quantidade">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="preco-venda">Preço de Venda</label>
+                    <input type="number" id="preco-venda" name="preco-venda" step="0.01">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="preco-aluguel">Preço de Aluguel</label>
+                    <input type="number" id="preco-aluguel" name="preco-aluguel" step="0.01">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <label for="renovacao">Preço de Renovação</label>
+                    <input type="number" id="renovacao" name="renovacao" step="0.01">
+
+                </div>
+
+                <div class="grupo-form">
+
+                    <button type="submit">
+                        Cadastrar Livro
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+<script>
+
+const formulario = document.querySelector("form");
+
+formulario.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const isbn = document.getElementById("isbn").value.trim();
+    const nome = document.getElementById("nome").value.trim();
+    const editora = document.getElementById("editora").value.trim();
+    const autor = document.getElementById("autor").value.trim();
+    const ano = document.getElementById("ano").value;
+    const assunto = document.getElementById("assunto").value.trim();
+    const tipo = document.getElementById("tipo").value;
+    const origem = document.getElementById("origem").value;
+    const quantidade = document.getElementById("quantidade").value;
+
+    if(isbn === ""){
+        alert("O ISBN é obrigatório");
+        return;
+    }
+
+    if(nome.length < 1){
+        alert("O nome do livro deve ter pelo menos 1 caractere");
+        return;
+    }
+
+    if(editora === ""){
+        alert("Qual a editora?");
+        return;
+    }
+
+    if(autor === ""){
+        alert("Quem escreveu?");
+        return;
+    }
+
+    if(ano < 1900 || ano > 2026){
+        alert("Os anos válidos são entre 1900 e 2026 outro ano não tem");
+        return;
+    }
+
+    if(assunto === ""){
+        alert("Qual o assunto do livro?");
+        return;
+    }
+
+    if(tipo === ""){
+        alert("Qual o tipo do livro?");
+        return;
+    }
+
+    if(origem === ""){
+        alert("De onde veio esse livro?");
+        return;
+    }
+
+    if(quantidade < 0 || quantidade === ""){
+        alert("Quantidade inválida tem que ter pelo menos 1 livro");
+        return;
+    }
+
+    alert("FOI! Seu livro foi cadastrado com sucesso :)!");
+
+});
+
+</script>
+    <footer class="rodape">
+
+        <p>
+            © 2026 Book.Net - Sistema de Livraria
+        </p>
+
+    </footer>
+
+</body>
+</html>
